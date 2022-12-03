@@ -8,7 +8,9 @@ use NumberFormatter;
 
 class One extends Day
 {
-    public $title = 'Calorie Counting';
+    public string $title = 'Calorie Counting';
+
+    public ?Collection $elves = null;
 
     public function description(): string
     {
@@ -30,7 +32,7 @@ HTML;
     {
 
         return <<<HTML
-        <p>TBD</p>
+        <p>The top 3 Elves are carrying <b>{$this->findCaloriesForTop(3)}<b> calories.</p>
 HTML;
     }
 
@@ -39,19 +41,30 @@ HTML;
      */
     public function findMaxCalories(): array
     {
-        $elves = $this->calculateElvesStock();
+        $maxCalories = $this->findCaloriesForTop();
 
-        $maxCalories = $elves->max();
-
-        return [$elves->search($maxCalories) + 1, $maxCalories];
+        return [$this->getElves()->search($maxCalories) + 1, $maxCalories];
     }
 
-    private function calculateElvesStock(): Collection
+    public function findCaloriesForTop(int $n = 1): int
     {
-        return $this->dataset->map(fn ($value) => is_numeric($value) ? (int)$value : null)
-            ->chunkWhile(fn ($value) => $value !== null)
-            ->map(fn ($foods) => $foods->sum())
-        ;
+        return $this->getElves()
+            ->sortDesc()
+            ->slice(0, $n)
+            ->sum();
+    }
+
+    private function getElves(): Collection
+    {
+        if ($this->elves === null) {
+            $this->elves = $this->dataset
+                ->map(fn ($value) => is_numeric($value) ? (int)$value : null)
+                ->chunkWhile(fn ($value) => $value !== null)
+                ->map(fn ($foods) => $foods->sum())
+            ;
+        }
+
+        return $this->elves;
     }
 
     private function ordinal(int $number): string

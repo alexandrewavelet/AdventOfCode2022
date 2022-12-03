@@ -14,7 +14,7 @@
         <?php /** @var App\Days\Day $day **/ ?>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">Advent of code 2020</div>
+                <div class="title m-b-md">Advent of code 2022</div>
 
                 <h1>Day {{ $number }}: {{ $day->title }}</h1>
 
