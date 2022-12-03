@@ -36,6 +36,11 @@ return [
             'throw' => false,
         ],
 
+        'days' => [
+            'driver' => 'local',
+            'root' => storage_path('days'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
