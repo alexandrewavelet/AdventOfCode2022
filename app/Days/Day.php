@@ -6,14 +6,9 @@ use Illuminate\Support\Collection;
 
 abstract class Day
 {
-    public $title = '';
+    public string $title = '';
 
-    /**
-     * Day dataset
-     *
-     * @var Collection
-     */
-    protected $dataset;
+    protected Collection $dataset;
 
     public function __construct($dataset = null)
     {

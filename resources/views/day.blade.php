@@ -14,12 +14,12 @@
         <?php /** @var App\Days\Day $day **/ ?>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">Advent of code 2020</div>
+                <div class="title m-b-md">Advent of code 2022</div>
 
                 <h1>Day {{ $number }}: {{ $day->title }}</h1>
 
                 {!! $day->description() !!}
-                <a href="https://adventofcode.com/2020/day/{{ $number }}" target="_blank" rel="noopener noreferrer">
+                <a href="https://adventofcode.com/2022/day/{{ $number }}" target="_blank" rel="noopener noreferrer">
                     Read on Adventofcode
                 </a>
 
