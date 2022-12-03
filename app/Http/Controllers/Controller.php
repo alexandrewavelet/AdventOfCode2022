@@ -30,7 +30,7 @@ class Controller extends BaseController
         return view('welcome', ['days' => $days]);
     }
 
-    public function day($number): View
+    public function day(int $number): View
     {
         try {
             $day = DayFactory::create($number);

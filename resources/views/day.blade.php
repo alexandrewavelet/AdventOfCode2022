@@ -19,7 +19,7 @@
                 <h1>Day {{ $number }}: {{ $day->title }}</h1>
 
                 {!! $day->description() !!}
-                <a href="https://adventofcode.com/2020/day/{{ $number }}" target="_blank" rel="noopener noreferrer">
+                <a href="https://adventofcode.com/2022/day/{{ $number }}" target="_blank" rel="noopener noreferrer">
                     Read on Adventofcode
                 </a>
 
