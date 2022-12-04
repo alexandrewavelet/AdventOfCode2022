@@ -30,7 +30,6 @@ HTML;
 
     public function secondPuzzle(): string
     {
-
         return <<<HTML
         <p>The top 3 Elves are carrying <b>{$this->findCaloriesForTop(3)}<b> calories.</p>
 HTML;

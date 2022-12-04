@@ -8,6 +8,7 @@ abstract class Day
 {
     public string $title = '';
 
+    /** @var Collection<string> */
     protected Collection $dataset;
 
     public function __construct($dataset = null)
@@ -16,7 +17,7 @@ abstract class Day
             ? $dataset
             : collect(preg_split(
                 $this->getSplitDelimiterForDataset(),
-                $dataset
+                $dataset ?? ''
             ));
 
         if (!$this->dataset->last()) {
